@@ -1,0 +1,157 @@
+{
+  "project": "MoonFix — fresh standalone implementation",
+  "event": "2026 NYC local event",
+  "event_start_new_york": "2026-11-14T10:00:00-05:00",
+  "event_start_utc": "2026-11-14T15:00:00+00:00",
+  "generated_at_utc": "2026-11-15T06:45:47+00:00",
+  "note": "File times below are read from the current file system; this tool never sets or backdates them. Data sample epochs are scientific time coordinates, not creation times.",
+  "files": [
+    {
+      "path": ".gitignore",
+      "modified_utc": "2026-11-14T20:03:38+00:00",
+      "changed_utc": "2026-11-15T06:38:08+00:00",
+      "size_bytes": 54,
+      "sha256": "9075b30f288237a4372c62272a65a34039819e9b75eb7363e0d96a8b06e7c30a"
+    },
+    {
+      "path": "LICENSE",
+      "modified_utc": "2026-11-14T20:03:38+00:00",
+      "changed_utc": "2026-11-15T06:38:08+00:00",
+      "size_bytes": 1152,
+      "sha256": "e620ea5b10d8cf98bed9766b617dcc22a2a5b97201c638165c73c36ef011f64c"
+    },
+    {
+      "path": "README.md",
+      "modified_utc": "2026-11-15T06:41:01+00:00",
+      "changed_utc": "2026-11-15T06:41:01+00:00",
+      "size_bytes": 6429,
+      "sha256": "c7109ca0eabfaf966ee3f313e5d64785813cb64220d079071abeb8e70d4698a6"
+    },
+    {
+      "path": "data/mission_samples.json",
+      "modified_utc": "2026-11-14T19:53:08+00:00",
+      "changed_utc": "2026-11-15T06:38:08+00:00",
+      "size_bytes": 249385,
+      "sha256": "3a6dee726352c3b6400391fe944b084d9ff3030990f4e15f978d7e5d1e6a1a2f"
+    },
+    {
+      "path": "docs/AI_DISCLOSURE.md",
+      "modified_utc": "2026-11-15T06:41:01+00:00",
+      "changed_utc": "2026-11-15T06:41:01+00:00",
+      "size_bytes": 1350,
+      "sha256": "6b4dae971aad401411489423cc7735b5683c4cb13034b07d61c403b3ec05ee07"
+    },
+    {
+      "path": "docs/DATA_SOURCES.md",
+      "modified_utc": "2026-11-15T06:41:01+00:00",
+      "changed_utc": "2026-11-15T06:41:01+00:00",
+      "size_bytes": 2902,
+      "sha256": "3188cb75131683941d362b40b02aef21fb6faedebf9c51e60ac492951e76cfe4"
+    },
+    {
+      "path": "docs/SCIENCE_NOTES.md",
+      "modified_utc": "2026-11-14T20:03:38+00:00",
+      "changed_utc": "2026-11-15T06:38:08+00:00",
+      "size_bytes": 3325,
+      "sha256": "2ffdd8aa3aed82a1c49ca71a741811310a55d82de51e7ef77cf25bbf225bb744"
+    },
+    {
+      "path": "docs/USER_GUIDE.md",
+      "modified_utc": "2026-11-14T20:03:38+00:00",
+      "changed_utc": "2026-11-15T06:38:08+00:00",
+      "size_bytes": 1652,
+      "sha256": "1a7eb67b6b9d931031ebdbfb57cb2eef5857234283260eec3c5c81c264636cf2"
+    },
+    {
+      "path": "index.html",
+      "modified_utc": "2026-11-15T06:45:47+00:00",
+      "changed_utc": "2026-11-15T06:45:47+00:00",
+      "size_bytes": 311663,
+      "sha256": "a3c90faa602811d225d862f6dbc914748890dace75c95afa0d6b788fdc129611"
+    },
+    {
+      "path": "screenshots/desktop.png",
+      "modified_utc": "2026-11-14T20:00:32+00:00",
+      "changed_utc": "2026-11-15T06:38:08+00:00",
+      "size_bytes": 973958,
+      "sha256": "a660aa9298f26ec5afbe81bfaf5265dd7ff660356cac1f95a13e18fb30fa9100"
+    },
+    {
+      "path": "screenshots/mobile.png",
+      "modified_utc": "2026-11-14T20:00:34+00:00",
+      "changed_utc": "2026-11-15T06:38:08+00:00",
+      "size_bytes": 539902,
+      "sha256": "cbdabae7447263b3928683da645704f8d803bd2d5bc5cd90f972bfdaa93482df"
+    },
+    {
+      "path": "scripts/build.py",
+      "modified_utc": "2026-11-14T19:59:24+00:00",
+      "changed_utc": "2026-11-15T06:38:08+00:00",
+      "size_bytes": 1135,
+      "sha256": "afcf4be90fedf0c2e9dcdb92877d387384a73d4122ff08a0d40647cfc19eb7eb"
+    },
+    {
+      "path": "scripts/check_release.py",
+      "modified_utc": "2026-11-14T20:04:22+00:00",
+      "changed_utc": "2026-11-15T06:38:08+00:00",
+      "size_bytes": 2587,
+      "sha256": "63f9771ec801ec65b4bd4eb6fc1045902881a3e0776594355cdc8c5174c15565"
+    },
+    {
+      "path": "scripts/prepare_reference_data.py",
+      "modified_utc": "2026-11-14T19:53:08+00:00",
+      "changed_utc": "2026-11-15T06:38:08+00:00",
+      "size_bytes": 2574,
+      "sha256": "4839b91a9e158adf331b325514d225aeacf440c8238560d2d812a1b3c2c5519e"
+    },
+    {
+      "path": "scripts/release.py",
+      "modified_utc": "2026-11-14T20:04:22+00:00",
+      "changed_utc": "2026-11-15T06:38:08+00:00",
+      "size_bytes": 2006,
+      "sha256": "fb2456baae09a78fdc54665b8c7d9074c3eb51a72c51ca2190d840f477e0b993"
+    },
+    {
+      "path": "src/app.js",
+      "modified_utc": "2026-11-14T19:59:24+00:00",
+      "changed_utc": "2026-11-15T06:38:08+00:00",
+      "size_bytes": 19834,
+      "sha256": "41baadefe1b0724ac37f997073029ae3dc6aa689dc49dc71c3b0d38cce1e1153"
+    },
+    {
+      "path": "src/engine.js",
+      "modified_utc": "2026-11-14T19:59:24+00:00",
+      "changed_utc": "2026-11-15T06:38:08+00:00",
+      "size_bytes": 3490,
+      "sha256": "779b24cbaa2b1b2ef9436f2e1b3d9064c859910aa62f7dd25f9a30b1675b1fef"
+    },
+    {
+      "path": "src/ui.css",
+      "modified_utc": "2026-11-15T06:41:01+00:00",
+      "changed_utc": "2026-11-15T06:41:01+00:00",
+      "size_bytes": 23814,
+      "sha256": "9fd082322db2dd472a4291071bfb6f6c49a441fe4d3e5f1945e30dca261e7ed7"
+    },
+    {
+      "path": "src/ui.html",
+      "modified_utc": "2026-11-15T06:41:01+00:00",
+      "changed_utc": "2026-11-15T06:41:01+00:00",
+      "size_bytes": 15203,
+      "sha256": "d8946fe248636eb4161f240387913f7a6a628ab9ab41388f7182c3d6cd2f6f13"
+    },
+    {
+      "path": "tests/test_app.py",
+      "modified_utc": "2026-11-14T20:02:04+00:00",
+      "changed_utc": "2026-11-15T06:38:08+00:00",
+      "size_bytes": 4904,
+      "sha256": "4a1c562538fd29b2fc065d242e1654813c64d54a16cb42c8407f1d0bec43c1f0"
+    },
+    {
+      "path": "tests/test_engine.js",
+      "modified_utc": "2026-11-14T20:02:04+00:00",
+      "changed_utc": "2026-11-15T06:38:08+00:00",
+      "size_bytes": 3961,
+      "sha256": "7117d1f68c6547ea73a78a48a945ebe3e658b8aba8257601af8cec875c8cdcda"
+    }
+  ]
+}
