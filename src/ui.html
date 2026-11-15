@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#07111e" />
+  <meta name="ai-assistance" content="AI-assisted code implementation, UI design, automated tests and documentation. See visible disclosure on this page and docs/AI_DISCLOSURE.md." />
+  <meta name="reference-provenance" content="Participant-supplied derived reference samples associated with JPL Horizons DE441 and NASA LRO LOLA; raw source processing not independently reproduced in this application." />
+  <meta name="description" content="MoonFix: an offline lunar south-pole landing site mission-window explorer using reference JPL/LOLA samples." />
+  <title>MoonFix — Lunar Mission Window Navigator</title>
+  <style>/* __MOONFIX_STYLES__ */</style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="MoonFix home">
+      <span class="brand-orbit" aria-hidden="true"><i></i></span>
+      <span>MOON<span class="brand-light">FIX</span><small>LUNAR NAVIGATION LAB</small></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#workspace">MISSION PLANNER</a>
+      <a href="#candidate-map">SITE EXPLORER</a>
+      <a href="#methodology">METHODOLOGY</a>
+    </nav>
+    <div class="header-actions"><span class="signal-chip"><span class="signal-dot"></span> OFFLINE READY</span><button type="button" class="btn btn-primary btn-small" id="exportHeader">EXPORT DATA <span aria-hidden="true">↗</span></button></div>
+  </header>
+
+  <div id="top"></div>
+  <section class="hero">
+    <div class="hero-left">
+      <div class="eyebrow"><span class="eyebrow-line"></span> MISSION INTELLIGENCE / LUNAR SOUTH POLE</div>
+      <h1>Every landing<br>starts with a <em>window.</em></h1>
+      <p>Explore terrain-aware solar illumination and direct-to-Earth visibility at ten lunar south-pole candidate sites. Compare conditions, filter mission constraints, and export your analysis.</p>
+      <div class="hero-actions"><a class="btn btn-primary" href="#workspace">EXPLORE MISSION WINDOWS <span aria-hidden="true">→</span></a><a class="btn btn-ghost" href="#methodology">VIEW SCIENCE NOTES ↗</a></div>
+      <div class="hero-facts"><div><strong>10</strong><span>LANDING CANDIDATES</span></div><div><strong>720</strong><span>HOURLY SAMPLES</span></div><div><strong>72H</strong><span>DATA COVERAGE</span></div></div>
+    </div>
+    <div class="hero-right" aria-hidden="true">
+      <div class="hero-moon">
+        <div class="hero-crater c1"></div><div class="hero-crater c2"></div><div class="hero-crater c3"></div><div class="hero-crater c4"></div><div class="hero-crater c5"></div>
+        <div class="moon-target target-1"></div><div class="moon-target target-2"></div><div class="moon-target target-3"></div>
+      </div>
+      <div class="orbit-ring orbit-1"></div><div class="orbit-ring orbit-2"></div>
+      <div class="hero-coord hero-coord-top">SELENE / 90°S<br>LATITUDE -84.0°</div>
+      <div class="hero-coord hero-coord-bottom">LUNAR SOUTH POLE <span>●</span> ACTIVE SCAN</div>
+      <div class="hero-decoration"></div>
+    </div>
+    <div class="hero-footer"><span>01 / MISSION PARAMETERS</span><span>SCROLL TO EXPLORE ↓</span></div>
+  </section>
+
+  <section class="workspace" id="workspace">
+    <div class="section-title"><div><span class="kicker">01 — OPERATIONS</span><h2>Mission planner<span class="small-period">.</span></h2><p>Define your visibility requirements. Every result updates from the selected data samples.</p></div><span class="data-range">DATA EPOCHS: 14–16 NOV 2026 · TDB</span></div>
+    <div class="app-shell">
+      <aside class="control-panel" aria-label="Mission planning controls">
+        <div class="panel-heading"><span class="tiny-sun">✳</span><div><strong>MISSION PARAMETERS</strong><small>Adjust your scenario</small></div><span class="panel-heading-num">01 / 04</span></div>
+        <div class="control-group"><div class="control-label"><label for="startEpoch">START EPOCH <span class="help-icon" title="JPL ephemeris uses TDB for these reference samples">ⓘ</span></label><span class="mini-tag">TDB</span></div><select id="startEpoch" aria-label="Start sample epoch"></select></div>
+        <div class="control-group"><div class="control-label"><label for="endEpoch">END EPOCH</label><span class="mini-tag">TDB</span></div><select id="endEpoch" aria-label="End sample epoch"></select></div>
+        <div class="day-select" role="group" aria-label="Date presets"><button type="button" data-preset="all" class="active">ALL 72H</button><button type="button" data-preset="0">NOV 14</button><button type="button" data-preset="1">NOV 15</button><button type="button" data-preset="2">NOV 16</button></div>
+        <div class="control-group"><div class="control-label"><label for="margin">TERRAIN CLEARANCE MARGIN</label><strong id="marginValue" class="accent-number">+1.0°</strong></div><input id="margin" type="range" min="0" max="3" step="0.5" value="1" aria-label="Angular clearance safety margin"/><div class="range-legend"><span>0°</span><span>1.5°</span><span>3°</span></div><p class="hint">Sun and Earth must both clear the terrain skyline plus this margin.</p></div>
+        <div class="two-controls"><div class="control-group"><label for="minRun">MIN. CONTINUOUS WINDOW</label><select id="minRun"><option value="0">ANY LENGTH</option><option value="3">3 HOURS</option><option value="6">6 HOURS</option><option value="12">12 HOURS</option><option value="24">24 HOURS</option></select></div><div class="control-group"><label for="maxSlope">MAX. SLOPE P95</label><select id="maxSlope"><option value="99">ANY SLOPE</option><option value="5">5°</option><option value="10">10°</option><option value="15">15°</option><option value="20">20°</option><option value="25">25°</option></select></div></div>
+        <div class="control-divider"></div>
+        <div class="control-group"><label for="primarySite">PRIMARY SITE</label><select id="primarySite"></select></div>
+        <div class="control-group"><label for="compareSite">COMPARE AGAINST</label><select id="compareSite"></select></div>
+        <button type="button" class="btn btn-outline reset-button" id="resetControls"><span>↺</span> RESET PARAMETERS</button>
+        <div class="constraints-note"><span class="mini-warning">i</span><p>Analysis is limited to 72 supplied hourly reference epochs. The model never extrapolates beyond the dataset.</p></div>
+      </aside>
+
+      <div class="results-panel">
+        <div class="results-head"><div><span class="kicker">LIVE ANALYSIS</span><h3>Site intelligence <span id="resultStatus" class="result-status">ACTIVE</span></h3></div><button type="button" class="btn btn-quiet btn-small" id="shareView">⤴ SHARE VIEW</button></div>
+        <div class="metric-grid" aria-live="polite">
+          <div class="metric"><span>ELIGIBLE SITES</span><strong id="metricEligible">—</strong><small>Meet all filters</small></div>
+          <div class="metric"><span>BEST MODEL WINDOW</span><strong id="metricBestRun">—</strong><small>Longest linear-model run</small></div>
+          <div class="metric"><span>PRIMARY VISIBILITY</span><strong id="metricPrimaryCount">—</strong><small>Both bodies above skyline</small></div>
+          <div class="metric"><span>TIME COVERED</span><strong id="metricCoverage">—</strong><small>Available sample span</small></div>
+        </div>
+
+        <div class="map-details-grid">
+          <article class="card map-card" id="candidate-map"><div class="card-top"><div><span class="kicker">02 — EXPLORER</span><h3>Lunar south pole</h3></div><span class="corner-label">POLAR SCHEMATIC</span></div><div id="polarMap" class="polar-map" aria-label="Interactive south pole map"></div><div class="map-bottom"><span><span class="legend-dot green"></span> ELIGIBLE</span><span><span class="legend-dot outline"></span> OUTSIDE FILTER</span><span class="microtext">POINTS ARE SCHEMATIC</span></div></article>
+          <article class="card site-card"><div class="card-top"><div><span class="kicker">03 — SITE DETAIL</span><h3 id="siteName">—</h3></div><span class="corner-label" id="siteCoordinates">—</span></div><div class="site-body"><div class="terrain-thumb"><img id="terrainImage" alt="Derived local lunar terrain relief" /><span>LOLA / TERRAIN RELIEF</span></div><div class="site-spec"><div><span>SLOPE P95</span><strong id="siteSlope">—</strong></div><div><span>RELIEF RANGE</span><strong id="siteRelief">—</strong></div><div><span>MEAN ELEV.</span><strong id="siteElevation">—</strong></div><div><span>MODEL HOURS</span><strong id="siteHours">—</strong></div></div></div><div class="site-readings"><div><div><span class="reading-dot sun"></span><span>SUN CLEARANCE</span></div><strong id="sunClearance">—</strong><small id="sunExplain">—</small></div><div><div><span class="reading-dot earth"></span><span>EARTH CLEARANCE</span></div><strong id="earthClearance">—</strong><small id="earthExplain">—</small></div></div><div class="epoch-current"><span>INSPECTED EPOCH</span><strong id="epochCurrent">—</strong></div></article>
+        </div>
+
+        <article class="card timeline-card" id="timeline"><div class="card-top"><div><span class="kicker">04 — TEMPORAL ANALYSIS</span><h3>Visibility over time</h3></div><div class="chart-legend"><span><i class="line-key sun"></i> SUN</span><span><i class="line-key earth"></i> EARTH</span><span><i class="line-key zero"></i> THRESHOLD</span></div></div><p class="card-subtitle">Clearance = apparent elevation minus local terrain skyline and selected safety margin. Select a point to inspect its conditions.</p><div class="graph-wrap" id="clearanceGraph" aria-label="Hourly sun and earth clearance graph"></div><div class="timeline-slider"><button type="button" id="playToggle" class="play-btn" aria-label="Play hourly samples">▶</button><input type="range" id="epochSlider" min="0" max="71" step="1" value="0" aria-label="Inspect selected hour"/><span id="sliderLabel">—</span></div><div class="windows-head"><div><h4>Modeled joint-visibility windows</h4><span>LINEAR BETWEEN-HOUR PROXY · NOT VERIFIED CONTINUOUS COVERAGE</span></div><button type="button" class="text-button" id="exportWindows">EXPORT WINDOWS ↗</button></div><div id="windowList" class="window-list"></div></article>
+
+        <article class="card compare-card" id="comparison"><div class="card-top"><div><span class="kicker">05 — COMPARISON</span><h3>Two-site timeline</h3></div><span class="corner-label">CLICK A CELL TO INSPECT</span></div><p class="card-subtitle">Hourly classification for your current mission range. Green: Sun and Earth clear. Amber: Sun only. Blue: Earth only. Dark: neither.</p><div id="comparisonTracks" class="comparison-tracks"></div><div class="compare-key"><span><i class="state-box both"></i> BOTH</span><span><i class="state-box sun"></i> SUN ONLY</span><span><i class="state-box earth"></i> EARTH ONLY</span><span><i class="state-box neither"></i> NEITHER</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="rank-section" id="rankings"><div class="section-title compact"><div><span class="kicker">02 — DECISION SUPPORT</span><h2>Candidate ranking<span class="small-period">.</span></h2><p>Ranked by modeled joint-visibility hours; slope and uninterrupted-window filters determine eligibility.</p></div><button type="button" class="btn btn-outline" id="exportRank">DOWNLOAD RANKING CSV ↗</button></div><div class="rank-table-wrap"><table class="rank-table"><thead><tr><th>RANK</th><th>LANDING SITE</th><th>JOINT SAMPLES</th><th>MODELED HOURS</th><th>LONGEST WINDOW</th><th>P95 SLOPE</th><th>STATUS</th></tr></thead><tbody id="rankRows"></tbody></table></div><p class="table-note" id="rankNote">Model window durations are interpolation estimates within the observed span; rankings do not constitute flight certification.</p></section>
+
+  <section class="methodology" id="methodology"><div class="method-intro"><span class="kicker">03 — KNOW YOUR DATA</span><h2>Precision starts with<br><em>honest limits.</em></h2></div><div class="method-cards"><div><span class="method-num">01 / INPUTS</span><h3>Reference science data</h3><p>Ten candidate coordinates, supplied hourly JPL Horizons DE441 Sun/Earth directions and NASA LOLA-derived local skyline values. This viewer reuses prepared reference samples; it does not independently regenerate those ephemerides or terrain horizons.</p></div><div><span class="method-num">02 / VISIBILITY</span><h3>Terrain-aware checks</h3><p>A sample passes only when both bodies stand above their respective azimuth-specific terrain horizons plus the chosen angular safety margin. Margins are applied to both Sun and Earth.</p></div><div><span class="method-num">03 / UNCERTAINTY</span><h3>Model, not mission approval</h3><p>Continuous windows are estimated by straight-line interpolation between one-hour samples. Terrain slope summaries cannot identify local rocks, link budget, illumination storage, or provide certified landing-safety assessments.</p></div></div><div class="science-footer"><div>PRIMARY REFERENCES <a href="https://ssd.jpl.nasa.gov/horizons/" target="_blank" rel="noopener">JPL HORIZONS ↗</a><a href="https://pds-geosciences.wustl.edu/missions/lro/lola.htm" target="_blank" rel="noopener">NASA LOLA ↗</a></div><div>TIMESTAMPS IN CHARTS: TDB EPOCHS — NOT FILE CREATION TIMES</div></div></section>
+  <section class="attribution-panel" id="credits" aria-label="Data sources and AI transparency">
+    <div class="attribution-inner">
+      <div><span class="kicker">04 — PROVENANCE & TRANSPARENCY</span><h2>Evidence before certainty.</h2>
+      <p>This educational viewer analyzes <strong>participant-supplied reference samples</strong> associated with JPL Horizons DE441 Sun/Earth geometry and NASA LRO LOLA-derived terrain skylines. The raw ephemerides, elevation grids and original preprocessing were not independently regenerated in this application; the sampled inputs are not live NASA feeds.</p></div>
+      <div><h3>AI / SI ASSISTANCE</h3><p>Generative AI was used to help implement UI and analysis code, automated tests, documentation, and presentation materials. The sample data came from supplied research references; no independent validation of that data is claimed. This is not a NASA-certified or operational landing tool.</p>
+      <p><a href="https://ssd.jpl.nasa.gov/horizons/" rel="noopener noreferrer" target="_blank">JPL Horizons ↗</a> &nbsp; <a href="https://pds-geosciences.wustl.edu/missions/lro/lola.htm" rel="noopener noreferrer" target="_blank">LRO LOLA Archive ↗</a></p></div>
+    </div>
+  </section>
+  <footer class="footer"><div class="footer-brand">MOON<span>FIX</span><small> / LUNAR NAVIGATION LAB</small></div><p>Independent educational research prototype. Not affiliated with or certified by NASA.</p><a href="#top">BACK TO TOP ↑</a></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script type="application/json" id="moonfix-data">__MOONFIX_DATA__</script>
+  <script>/* __MOONFIX_SCRIPT__ */</script>
+</body>
+</html>
